@@ -1,1 +1,89 @@
-code here
+import mysql.connector as mysql
+from tabulate import tabulate 
+
+db=mysql.connect(user='root',password='Arjhun14',host='localhost',database='arjhunnn')
+
+
+def insert(eid,fname,lname,bday,sex,salary,sid,bid):
+    cur=db.cursor()
+    sql="insert into employee values(%s,%s,%s,%s,%s,%s,%s,%s)"
+    user=(eid,fname,lname,bday,sex,salary,sid,bid)
+    cur.execute(sql,user)
+    db.commit()
+    print("data inserted successfully")
+    
+    
+def update(fname,lname,bday,sex,salary,sid,bid,eid):
+    cur=db.cursor()
+    sql="update employee set first_name=%s,last_name=%s,birth_day=%s,sex=%s,salary=%s,super_id=%s,branch_id=%s where emp_id=%s"
+    user=(fname,lname,bday,sex,salary,sid,bid,eid)
+    cur.execute(sql,user)
+    db.commit()
+    print("updation successfull")
+
+
+def delete(eid):
+    cur=db.cursor()
+    sql="delete from employee where emp_id=%s"
+    user=(eid,)
+    cur.execute(sql,user)
+    db.commit()
+    print("deletion successfull")
+    
+
+def show():
+    cur=db.cursor()
+    sql="select * from employee"
+    cur.execute(sql)
+    result=cur.fetchall()
+    print()
+    print(tabulate(result,headers=['emp_id','first name','last name','birthday','sex','salary','super_id','branch id']))
+    
+
+
+
+while True:
+    print()
+    print("1.Insert 2.update 3.Delete 4.show 5.Exit")
+    ch=int(input("enter your choice"))
+    if ch==4:
+        show()
+    
+    elif ch==1:
+        eid=input("enter the employee id")
+        fname=input("enter the first name")
+        lname=input("enter the last name")
+        bday=input("ebter the bday(yyyy-mm-dd)")
+        sex=input("enter the sex")
+        salary=input("enter the salary")
+        sid=input("enter the supervisor id")
+        bid=input("enter the branch id")
+        insert(eid,fname,lname,bday,sex,salary,sid,bid)
+    
+    elif ch==2:
+        eid=input("enter the employee id")
+        fname=input("enter the first name")
+        lname=input("enter the last name")
+        bday=input("ebter the bday(yyyy-mm-dd)")
+        sex=input("enter the sex")
+        salary=input("enter the salary")
+        sid=input("enter the supervisor id")
+        bid=input("enter the branch id")
+        update(fname,lname,bday,sex,salary,sid,bid,eid)
+    
+    elif ch==3:
+        eid=input("enter the id to be deleted")
+        delete(eid)
+    
+    elif ch==5:
+        quit()
+        
+    else:
+        print("invalid option")
+        
+        
+        
+    
+        
+        
+        
