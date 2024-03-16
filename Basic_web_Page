@@ -1,0 +1,60 @@
+<html>
+
+<head>
+        <title>Real Madrid</title>
+        <link rel="icon" href="real logo.webp">
+
+</head>
+
+<body bgcolor="black" style="color: white;">
+        <center>
+            <h1>Real Madrid 👑</h1>
+            <h2>Greates Football Club Of All Time</h2>
+        </center>
+        <hr>
+        
+        <br>
+        <p>Real Madrid, is a Spanish professional football club based in Madrid. The club competes in La Liga, the top tier of Spanish football.Founded in 1902 as Madrid Football Club, the club has traditionally worn a white home kit since its inception. The honorific title real is Spanish for "royal" and was bestowed to the club by King Alfonso XIII in 1920 together with the royal crown in the emblem.</p>
+        <br>
+        
+        <center>
+        <img src="group.jpg" width="500px">
+        <p>Real Madrid 2023-24</p>
+        <br>
+        
+        <h1>MATCHES</h1>
+        <br>
+        
+        </center>
+        <h2>Champions League:</h2>
+        <center>
+            <img src="cl.jpg" width="500px">
+            <p></p>
+            <h2>
+            <a href="https://www.uefa.com/uefachampionsleague/clubs/50051--real-madrid/matches/">Matches</a><br><p> </p>
+            <a href="https://www.uefa.com/uefachampionsleague/standings/">League Table</a><br><p> </p>
+            <a href="https://www.uefa.com/uefachampionsleague/statistics/">Stats</a><br><p> </p>
+        </center>
+        <br>
+        
+        <h2>Laliga:</h2>
+        <center>
+            <img src="laliga.webp" width="350px">
+            <p></p>
+            <h2>
+            <a href="https://www.laliga.com/en-GB/clubs/real-madrid/next-matches">Matches</a><br><p> </p>
+            <a href="https://search.brave.com/search?q=real+madrid+la+liga+table&source=web&rh_type=sp&view=standings&comp_id=140&team_id=541">League Table</a><br><p> </p>
+            <a href="https://www.laliga.com/en-GB/stats/laliga-easports/scorers">Stats</a><br><p> </p>
+        </center>
+        <p> </p>
+        <hr>
+
+
+
+</body>
+
+
+
+
+
+</html>
