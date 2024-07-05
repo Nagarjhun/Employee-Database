@@ -1,0 +1,152 @@
+import pyttsx3
+import pywhatkit
+import datetime
+import speech_recognition as sr
+import wikipedia
+import os
+import random
+import webbrowser
+import pyjokes
+import pyautogui
+
+engine = pyttsx3.init('sapi5')
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[1].id)
+
+def speak(audio):
+    engine.say(audio)
+    engine.runAndWait()
+
+def myvoice():
+    rec = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("I am listening Arjhun....")
+        rec.pause_threshold = 1
+        rec.adjust_for_ambient_noise(source, duration=1)
+        audio = rec.listen(source)
+    try:
+        print("Irunga Arjhun Konja Neram.....")
+        query = rec.recognize_google(audio, language='en-in')
+        print(f" Arjhun, You said: {query}")
+    except Exception as e:
+        print(e)
+        print("pardon")
+        query = "none"
+    return query
+
+def mycmd1():
+    print("Arjhun I love you 3000 times")
+    speak("Arjhun I love you 3000 times")
+
+def mycmd2():
+    print("I Love you too Arjhun")
+    speak("I Love you too Arjhun")
+
+def youtube():
+    speak("Arjhun I am Opening youtube for you")
+    webbrowser.open("www.youtube.com")
+
+def notepad():
+    os.startfile("C:\\Windows\\system32\\notepad.exe")
+
+def wish():
+    hour = int(datetime.datetime.now().hour)
+    if hour >= 0 and hour < 12:
+        print("Kaalai vanakam Arjhun I am Ready ")
+        speak("Kaalai vananakkam Arjhun I am Ready")
+    elif hour >= 12 and hour < 18:
+        print("Happy Noon Arjhun I think you had your lunch I am ready to receive your commands Arjhun")
+        speak("Happy Noon Arjhun I think you had your lunch I am ready to receive your commands Arjhun")
+    else:
+        print("Good Evening Dear Arjhun")
+        print("What can I do for you now in this evening")
+        speak("Good Evening Dear Arjhun")
+        speak("What can I do for you now in this evening")
+
+if _name_ == "_main_":
+    wish()
+    while True:
+        query = myvoice().lower()
+        
+        if 'time' in query:
+            mytime = datetime.datetime.now().strftime("%H %M %S")
+            print(mytime)
+            speak("Neaaraam:" + mytime)
+            
+        elif 'open my browser' in query:
+            speak("Arjhun I am opening Your Browser")
+            os.startfile("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe")
+            
+        elif "wikipedia" in query:
+            print("Arjhun I am searching in wikipedia")
+            speak("Arjhun I am searching in wikipedia")
+            query = query.replace("wikipedia", "")
+            results = wikipedia.summary(query, sentences=1)
+            speak("To your query Arjhun, According to wikipedia")
+            print(results)
+            speak(results)
+            
+        elif "open youtube" in query:
+            youtube()
+            
+        elif "play" in query:
+            playquery = query.replace('play', '')
+            speak("Arjhun I am Playing " + playquery)
+            pywhatkit.playonyt(playquery)
+            
+        elif "write" in query:
+            notepad()
+            speak("What can I Type")
+            while True:
+                writequery = myvoice()
+                if writequery == "stop writing":
+                    speak("I finished typing Arjhun")
+                    break
+                else:
+                    pyautogui.write(writequery)
+        
+        elif 'minimise' in query:
+            pyautogui.moveTo(1232, 15)
+            pyautogui.leftClick()
+            
+        elif 'maximize' in query:
+            pyautogui.hotkey('win', 'up')
+            
+        elif 'close this' in query:
+            pyautogui.moveTo(1344, 11)
+            pyautogui.leftClick()
+            
+        elif 'joke' in query:
+            lucyjokes = pyjokes.get_jokes()
+            a = random.choice(lucyjokes)
+            print(a)
+            speak(a)
+            
+        elif query == "how much do you love me":
+            mycmd1()
+            
+        elif query == "i love you":
+            mycmd2()
+            
+        elif 'open microsoft edge' in query:
+            speak("Opening Arjhun")
+            os.startfile("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe")
+
+        elif 'take rest' in query:
+            print("I am Gonnaa Take Some Rest Bye Bye Arjhun...")
+            speak("I am Gonnaa Take Some Rest Bye Bye Arjhun...") 
+            quit()
+
+        while True:
+            broquery = myvoice().lower()
+            if "search" in broquery:
+                bquery = broquery.replace("search", "")
+                pyautogui.write(bquery)
+                pyautogui.press("enter")
+                speak("Searching your results Arjhun")
+            elif "stop" in broquery:
+                pyautogui.hotkey('ctrl', 'w')
+                speak("I am Stop Searching Arjhun")
+                break
+            
+        
