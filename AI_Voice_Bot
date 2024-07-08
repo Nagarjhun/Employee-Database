@@ -1,23 +1,23 @@
-import pyttsx3
-import pywhatkit
-import datetime
-import speech_recognition as sr
-import wikipedia
-import os
-import random
-import webbrowser
-import pyjokes
-import pyautogui
+import pyttsx3                                        # python text to speech module v3
+import pywhatkit                                      # python whatsapp automation  kit module
+import datetime                                       # date time module
+import speech_recognition as sr                       # speech recogonition module
+import wikipedia                                      # access wikipedia article module
+import os                                             # module provide for interacting with operating system
+import random                                         # random numbers generating module
+import webbrowser                                     # module for open and interact with web browser
+import pyjokes                                        # library to get random jokes
+import pyautogui                                      # python automatic graphical interface module
 
-engine = pyttsx3.init('sapi5')
-voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[1].id)
+engine = pyttsx3.init('sapi5')                        # initialize sapi(speech api) v5 using pyttsx3
+voices = engine.getProperty('voices')                 # get the voices 
+engine.setProperty('voice', voices[1].id)             # set the voice of the bot
 
-def speak(audio):
+def speak(audio):                                     # takes audio as input 
     engine.say(audio)
     engine.runAndWait()
 
-def myvoice():
+def myvoice():                                        # voice recogonition function, listens to microphone input, recognize speech using google's speech recognition and retuens the recognized query
     rec = sr.Recognizer()
     with sr.Microphone() as source:
         print("I am listening Arjhun....")
@@ -25,7 +25,7 @@ def myvoice():
         rec.adjust_for_ambient_noise(source, duration=1)
         audio = rec.listen(source)
     try:
-        print("Irunga Arjhun Konja Neram.....")
+        print("Wait a moment Arjhun.....")                            
         query = rec.recognize_google(audio, language='en-in')
         print(f" Arjhun, You said: {query}")
     except Exception as e:
@@ -50,7 +50,7 @@ def notepad():
     os.startfile("C:\\Windows\\system32\\notepad.exe")
 
 def wish():
-    hour = int(datetime.datetime.now().hour)
+    hour = int(datetime.datetime.now().hour)                                     # fetch date and time
     if hour >= 0 and hour < 12:
         print("Kaalai vanakam Arjhun I am Ready ")
         speak("Kaalai vananakkam Arjhun I am Ready")
@@ -63,7 +63,7 @@ def wish():
         speak("Good Evening Dear Arjhun")
         speak("What can I do for you now in this evening")
 
-if _name_ == "_main_":
+if _name_ == "_main_":                                            # entry point of main block
     wish()
     while True:
         query = myvoice().lower()
@@ -71,7 +71,7 @@ if _name_ == "_main_":
         if 'time' in query:
             mytime = datetime.datetime.now().strftime("%H %M %S")
             print(mytime)
-            speak("Neaaraam:" + mytime)
+            speak("Time:" + mytime)
             
         elif 'open my browser' in query:
             speak("Arjhun I am opening Your Browser")
