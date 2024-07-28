@@ -34,13 +34,7 @@ def myvoice():                                        # voice recogonition funct
         query = "none"
     return query
 
-def mycmd1():
-    print("Arjhun I love you 3000 times")
-    speak("Arjhun I love you 3000 times")
 
-def mycmd2():
-    print("I Love you too Arjhun")
-    speak("I Love you too Arjhun")
 
 def youtube():
     speak("Arjhun I am Opening youtube for you")
@@ -52,8 +46,8 @@ def notepad():
 def wish():
     hour = int(datetime.datetime.now().hour)                                     # fetch date and time
     if hour >= 0 and hour < 12:
-        print("Kaalai vanakam Arjhun I am Ready ")
-        speak("Kaalai vananakkam Arjhun I am Ready")
+        print("Good Morning Arjhun I am Ready ")
+        speak("Good Morning Arjhun I am Ready")
     elif hour >= 12 and hour < 18:
         print("Happy Noon Arjhun I think you had your lunch I am ready to receive your commands Arjhun")
         speak("Happy Noon Arjhun I think you had your lunch I am ready to receive your commands Arjhun")
@@ -122,21 +116,13 @@ if _name_ == "_main_":                                            # entry point 
             print(a)
             speak(a)
             
-        elif query == "how much do you love me":
-            mycmd1()
-            
-        elif query == "i love you":
-            mycmd2()
+        
             
         elif 'open microsoft edge' in query:
             speak("Opening Arjhun")
             os.startfile("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe")
-
-        elif 'take rest' in query:
-            print("I am Gonnaa Take Some Rest Bye Bye Arjhun...")
-            speak("I am Gonnaa Take Some Rest Bye Bye Arjhun...") 
-            quit()
-
+        
+        
         while True:
             broquery = myvoice().lower()
             if "search" in broquery:
@@ -148,5 +134,12 @@ if _name_ == "_main_":                                            # entry point 
                 pyautogui.hotkey('ctrl', 'w')
                 speak("I am Stop Searching Arjhun")
                 break
+
+        elif 'take rest' in query:
+            print("I am Gonnaa Take Some Rest Bye Bye Arjhun...")
+            speak("I am Gonnaa Take Some Rest Bye Bye Arjhun...") 
+            quit()
+
+        
             
         
