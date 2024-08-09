@@ -122,7 +122,11 @@ if _name_ == "_main_":                                            # entry point 
             speak("Opening Arjhun")
             os.startfile("C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe")
         
-        
+        elif 'take rest' in query:
+            print("I am Gonnaa Take Some Rest Bye Bye Arjhun...")
+            speak("I am Gonnaa Take Some Rest Bye Bye Arjhun...") 
+            quit()
+
         while True:
             broquery = myvoice().lower()
             if "search" in broquery:
@@ -135,10 +139,7 @@ if _name_ == "_main_":                                            # entry point 
                 speak("I am Stop Searching Arjhun")
                 break
 
-        elif 'take rest' in query:
-            print("I am Gonnaa Take Some Rest Bye Bye Arjhun...")
-            speak("I am Gonnaa Take Some Rest Bye Bye Arjhun...") 
-            quit()
+        
 
         
             
